@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog id="projeFragment" title="PROJE LİST">
+		<customHeader>
+			<Bar>
+				<contentLeft>
+				</contentLeft>
+				<contentMiddle>
+					<Label text="PROJE LİST">
+					</Label>
+				</contentMiddle>
+				<contentRight>
+					<Button type="Transparent" icon="sap-icon://sys-cancel" press="projeClose">
+					</Button>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<VBox>
+				<Label text="Proje Name" />
+				<MultiInput id="projenameInput" width="70%" placeholder="Enter Proje Name" />
+				<HBox>
+					<Button text="ADD TO PROJE" press="onpresAddProje" />
+					<Button text="UPDATE PROJE" press="onpresUpdateProje" />
+					<Button text="DELETE PROJE" press="onpresDeleteProje" />
+				</HBox>
+			</VBox>
+			<List items="{/Projeler}" itemPress="onListProjepress">
+				<StandardListItem title="{projeNames}" type="Active" />
+			</List>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

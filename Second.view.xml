@@ -1,0 +1,37 @@
+<View controllerName="SapUI5Tutorial.Application.Login.controller.Second" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" height="100%" width="100%" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<HBox>
+	<Button text="Personel" press="onPressNavToPersonel" />
+	</HBox>
+	<SplitApp id="SplitAppDemo" initialDetail="detail" initialMaster="master" orientationChange="onOrientationChange">
+		<detailPages>
+			<Page id="detail" title="Personel Ekle" class="sapUiStdPage">
+				<content>
+					<VBox>
+						<Label text="User Email" />
+						<Input width="30%" id="emailInput" type="Text" placeholder="Enter Email" />
+						<Label text="User Password" />
+						<Input width="30%" id="passwordInput" type="Password" placeholder="Enter Password" />
+						<ComboBox id="comboPossition" items="{/Possition}">
+						<core:Item text="{positionName}" />
+						</ComboBox>
+						<HBox>
+						<Button text="Add To Personel" press="onPressNavToAdd" />
+						<Button text="Update Personel" press="onPressNavToUpdate" />
+						<Button text="Delete Personel" press="onPressNavToDelete" />
+						</HBox>
+					</VBox>
+				</content>
+			</Page>
+		</detailPages>
+		<masterPages>
+			<Page id="PersonellerListesi" title="Personeller" icon="sap-icon://action" class="sapUiStdPage" showNavButton="true" navButtonPress="onPressMasterBack">
+				<content>
+					<List items="{/Personeller}" 
+						  itemPress="onListItemPress">
+						<StandardListItem title="{personelMail}" icon="sap-icon://employee" description="{personelPossition}" type="Active" custom:to="detail" />
+					</List>
+				</content>
+			</Page>
+		</masterPages>
+	</SplitApp>
+</View>

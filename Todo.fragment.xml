@@ -1,0 +1,75 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
+	<Dialog id="todoFragent" title="TO-DO LİST" beforeOpen="beforeOpen">
+    <customHeader>
+			<Bar>
+				<contentLeft>
+				</contentLeft>
+				<contentMiddle>
+					<Label text="TO-DO LİST">
+					</Label>
+				</contentMiddle>
+				<contentRight>
+					<Button type="Transparent" icon="sap-icon://sys-cancel" press="todoClose">
+					</Button>
+				</contentRight>
+			</Bar>
+		</customHeader>
+    <content>
+    <l:VerticalLayout class="sapUiContentPadding" width="100%">
+        <MultiInput width="70%"
+			id="miProjeName"
+			suggestionItems="{
+				path: '/Projeler'
+			}"
+             placeholder="Enter Proje Name"
+			showValueHelp="false">
+			<core:Item text="{projeNames}" key="{projeNames}" />
+		</MultiInput>
+
+		<MultiInput width="70%"
+			id="miProjeKimden"
+             placeholder="Enter Kimden">
+			<core:Item text="{projeNames}" />
+		</MultiInput>
+        
+		<MultiInput width="70%"
+			id="miProjeKime"
+			suggestionItems="{
+				path: '/Personeller'
+			}"
+             placeholder="Enter Kime"
+			showValueHelp="false">
+			<core:Item text="{personelMail}" />
+		</MultiInput>
+
+        <MultiInput width="70%"
+			id="miProjeBilgi"
+			suggestionItems="{
+				path: '/Personeller'
+			}"
+             placeholder="Enter Bilgi"
+			showValueHelp="false">
+			<core:Item text="{personelMail}" />
+		</MultiInput>
+
+        <Input id="inProjeKonu" type="Text" width="70%"  placeholder="Enter Konu" />
+
+        <Label text="Proje Durum Belirtiniz"></Label>
+        <ComboBox id="cbProjeOncelik" items="{/Durumlar}">
+		<core:Item text="{durumName}" /></ComboBox>
+
+         <Label text="Proje Öncelik Belirtiniz"></Label>
+        <ComboBox id="cbProjeDurum" items="{/Oncelikler}">
+		<core:Item text="{oncelikName}" /></ComboBox>
+		
+	</l:VerticalLayout>
+    <HBox>
+    <Button text="Ekle" press="onpressAddTodo" />
+    </HBox>
+    </content>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,10 @@
+<View controllerName="SapUI5Tutorial.Application.Login.controller.Login" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" height="100%" width="100%">
+	<VBox>
+		<Input id="emailInput" type="Text" placeholder="Enter email ..." width="20%" />
+		<Input id="passwordInput" type="Password" placeholder="Enter password ..." width="20%" />
+		<HBox>
+			<Button text="Login" press="loginBtn">
+			</Button>
+		</HBox>
+	</VBox>
+</View>
